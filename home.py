@@ -4,6 +4,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.isri import ISRIStemmer
 import pickle
+import os
 st.set_page_config(
     page_title="Arabic classification",
     page_icon="3-removebg-preview.png",
@@ -21,8 +22,8 @@ with open('select_kbest.pkl', 'rb') as f:
 
 
 
-nltk.download('stopwords')
-nltk.download('punkt')
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), 'nltk'))
+
 stopwords= set(stopwords.words("arabic"))
 stemmer= ISRIStemmer()
 def preprocess_text(text):
