@@ -13,11 +13,13 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 st.set_page_config(
     page_title="Arabic classification",
-    page_icon="3-removebg-preview.png",
+    page_icon="🏠",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), 'nltk'))
+#
 with open('tfidf_vectorizer.pkl', 'rb') as f:
     tfidf_vectorizer = pickle.load(f)
 
